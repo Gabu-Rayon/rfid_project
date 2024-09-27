@@ -9,9 +9,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColors.darkBackground, // Dark blue background
+      backgroundColor: AppColors.blueBackground, // Dark blue background
       title: const Text(
-        'Project Title',
+        'RFID HCUHF',
         style: TextStyle(color: Colors.white),
       ),
       actions: [

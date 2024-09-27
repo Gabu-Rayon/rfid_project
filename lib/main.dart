@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:rfid_project/common/widgets/appbar/app_bar.dart'; // Update the import path if needed
 import 'package:rfid_project/core/theme/app_colors.dart'; // Update the import path if needed
+import 'package:rfid_project/pages/inventory.dart';
+import 'package:rfid_project/pages/set.dart';
+import 'package:rfid_project/pages/read.dart';
+import 'package:rfid_project/pages/write.dart';
+import 'package:rfid_project/pages/lock.dart';
+import 'package:rfid_project/pages/destroy.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -54,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage>
       appBar: CustomAppBar(tabController: _tabController),
       body: TabBarView(
         controller: _tabController,
-        children: [
+        children: const [
           InventoryPage(),
           SetPage(),
           ReadPage(),
@@ -63,70 +71,6 @@ class _MyHomePageState extends State<MyHomePage>
           DestroyPage(),
         ],
       ),
-    );
-  }
-}
-
-class InventoryPage extends StatelessWidget {
-  const InventoryPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Inventory Page',
-          style: TextStyle(color: AppColors.darkBackground)),
-    );
-  }
-}
-
-class SetPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child:
-          Text('Set Page', style: TextStyle(color: AppColors.darkBackground)),
-    );
-  }
-}
-
-class ReadPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child:
-          Text('Read Page', style: TextStyle(color: AppColors.darkBackground)),
-    );
-  }
-}
-
-class WritePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child:
-          Text('Write Page', style: TextStyle(color: AppColors.darkBackground)),
-    );
-  }
-}
-
-class LockPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child:
-          Text('Lock Page', style: TextStyle(color: AppColors.darkBackground)),
-    );
-  }
-}
-
-class DestroyPage extends StatelessWidget {
-  const DestroyPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Destroy Page',
-          style: TextStyle(color: AppColors.darkBackground)),
     );
   }
 }
