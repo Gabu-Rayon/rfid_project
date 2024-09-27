@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:rfid_project/common/widgets/appbar/app_bar.dart'; // Update the import path if needed
+import 'package:rfid_project/core/theme/app_colors.dart'; // Update the import path if needed
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.blue,
+        scaffoldBackgroundColor:
+            AppColors.lightBackground, // White background for pages
         textTheme: const TextTheme(
-          bodyLarge: TextStyle(color: Colors.white),
-          bodyMedium: TextStyle(color: Colors.white),
+          bodyLarge: TextStyle(color: AppColors.darkBackground),
+          bodyMedium: TextStyle(color: AppColors.darkBackground),
         ),
       ),
       home: const MyHomePage(),
@@ -50,34 +51,10 @@ class _MyHomePageState extends State<MyHomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Text('Project Title'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.more_vert, color: Colors.white),
-            onPressed: () {
-              // Handle more options here
-            },
-          ),
-        ],
-        bottom: TabBar(
-          controller: _tabController,
-          tabs: const [
-            Tab(text: 'Inventory'),
-            Tab(text: 'Set'),
-            Tab(text: 'Read'),
-            Tab(text: 'Write'),
-            Tab(text: 'Lock'),
-            Tab(text: 'Destroy'),
-          ],
-          indicatorColor: Colors.white,
-          labelColor: Colors.white,
-        ),
-      ),
+      appBar: CustomAppBar(tabController: _tabController),
       body: TabBarView(
         controller: _tabController,
-        children: const [
+        children: [
           InventoryPage(),
           SetPage(),
           ReadPage(),
@@ -96,51 +73,48 @@ class InventoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Inventory Page', style: TextStyle(color: Colors.white)),
+      child: Text('Inventory Page',
+          style: TextStyle(color: AppColors.darkBackground)),
     );
   }
 }
 
 class SetPage extends StatelessWidget {
-  const SetPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Set Page', style: TextStyle(color: Colors.white)),
+      child:
+          Text('Set Page', style: TextStyle(color: AppColors.darkBackground)),
     );
   }
 }
 
 class ReadPage extends StatelessWidget {
-  const ReadPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Read Page', style: TextStyle(color: Colors.white)),
+      child:
+          Text('Read Page', style: TextStyle(color: AppColors.darkBackground)),
     );
   }
 }
 
 class WritePage extends StatelessWidget {
-  const WritePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Write Page', style: TextStyle(color: Colors.white)),
+      child:
+          Text('Write Page', style: TextStyle(color: AppColors.darkBackground)),
     );
   }
 }
 
 class LockPage extends StatelessWidget {
-  const LockPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Lock Page', style: TextStyle(color: Colors.white)),
+      child:
+          Text('Lock Page', style: TextStyle(color: AppColors.darkBackground)),
     );
   }
 }
@@ -151,7 +125,8 @@ class DestroyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Destroy Page', style: TextStyle(color: Colors.white)),
+      child: Text('Destroy Page',
+          style: TextStyle(color: AppColors.darkBackground)),
     );
   }
 }
